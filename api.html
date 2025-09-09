@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>API</h1>
+    <ul id="userlist"></ul>
+    <script>
+        let apiURL = "https://jsonplaceholder.typicode.com/users";
+
+        fetch(apiURL)  //sends a get request and returns a promise
+            .then(response => response.json()) //analyzes and converts the JSON response and returns another promise
+            .then(data => {
+                console.log(data); //logs the data to the console
+
+                //display the data on the webpage
+                let list=document.getElementById("userlist");
+                data.forEach(user => {
+                    let li = document.createElement("li");
+                    li.textContent = `user.name + "( ' +user.email')" v(${user.email})`;
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => console.error("Fetch error:", error)); //handles any errors recovered during the fetch process
+    </script>
+</body>
+</html>

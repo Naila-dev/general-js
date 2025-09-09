@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>switch Statement</h1>
+    <p>A switch statement lets you test a variable against multiple values and run different code for each one.</p>
+
+    <h2>Select a Menu Item</h2>
+    <button onclick="chooseMenu('burger')">Burger</button>
+    <button onclick="chooseMenu('pizza')">Pizza</button>
+    <button onclick="chooseMenu('salad')">Salad</button>
+    <button onclick="chooseMenu('ice cream')">Ice Cream</button>
+  
+    <p id="menuOutput"></p>
+    <script>
+ 
+
+    function chooseMenu(item) {
+      let message;
+
+      switch (item) {
+        case "burger":
+          message = "You selected a Burger ";
+          break;
+        case "pizza":
+          message = "You selected Pizza ";
+          break;
+        case "salad":
+          message = "You selected Salad ";
+          break;
+        case "ice cream":
+          message = "You selected Ice Cream ";
+          break;
+        default:
+          message = "Item not on the menu.";
+      }
+
+      document.getElementById("menuOutput").textContent = message;
+    }
+    </script>
+</body>
+</html>

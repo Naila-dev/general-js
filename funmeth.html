@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions and Methods</title>
+</head>
+<body>
+<h1>Functions vs Methods in JavaScript</h1>
+<p>A function is a standalone block of code that performs a specific task, while a method is<br>
+a function that is associated with an object.</p>
+    <script>
+    // a funtion perfoms a task and can be used independently
+
+    function greet(name) {   //greet is the function and can be called anywhere in the code
+        return"hello," + name +"!";//it can also be defined outside of an object and can be called on its own
+    }
+
+console.log(greet("Faith"));
+
+    // a method is a function that is a property of an object
+
+    let person = {
+        name: "Faith",
+        greet: function() { //it uses the function keyword but is defined within an object
+            return "Hello, " + this.name + "!";//it uses this to refer to its own object
+        }
+    };
+    // person is the object, greet is the method
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Switchable Fetch Example</title>
+</head>
+<body>
+  <script>
+    // Using let for everything
+    let apiURLs = {
+      users: "https://jsonplaceholder.typicode.com/users",
+      posts: "https://jsonplaceholder.typicode.com/posts"
+    };
+// Start with users
+    let api_variable_name = apiURLs.users;
+
+    //fetch the  users api URL
+    fetch(api_variable_name)  //sends a get request and returns a promise
+      .then(response => response.json()) //analyzes and converts the JSON response and returns another promise
+      .then(data => {
+        console.log("Users:", data);
+        
+        //switch to posts
+        api_variable_name = apiURLs.posts;
+
+        // Second fetch posts
+        return fetch(api_variable_name);
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Posts:", data);
+      })
+      .catch(error => console.error("Fetch error:", error)); //handles any errors recovered during the fetch process
+  </script>
+</body>
+</html>
+
+
