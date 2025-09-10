@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <h1>API</h1>
-    <ul id="userlist"></ul>
-    <script>
-        let apiURL = "https://jsonplaceholder.typicode.com/users";
+  <h1>API</h1>
+  <ul id="userlist"></ul>
 
-        fetch(apiURL)  //sends a get request and returns a promise
-            .then(response => response.json()) //analyzes and converts the JSON response and returns another promise
-            .then(data => {
-                console.log(data); //logs the data to the console
+  <h1>API Posts</h1>
+  <ol id="userlistp"></ol>
 
-                //display the data on the webpage
-                let list=document.getElementById("userlist");
-                data.forEach(user => {
-                    let li = document.createElement("li");
-                    li.textContent = `user.name + "( ' +user.email')" v(${user.email})`;
-                    list.appendChild(li);
-                });
-            })
-            .catch(error => console.error("Fetch error:", error)); //handles any errors recovered during the fetch process
-    </script>
+  <script>
+    let apiURL = "https://jsonplaceholder.typicode.com/users";
+
+    fetch(apiURL)
+      .then(response => response.json())
+      .then(data => {
+        console.log("Users:", data);
+
+        let list = document.getElementById("userlist");
+        data.slice(6,9).forEach(user => {
+          let li = document.createElement("li");
+          li.textContent = user.name + " (" + user.email + ")";
+          list.appendChild(li);
+        });
+      })
+      .catch(error => console.error("Fetch error (users):", error));
+
+    let apiURL2 = "https://jsonplaceholder.typicode.com/posts";
+
+    fetch(apiURL2)
+      .then(response => response.json())
+      .then(data => {
+        console.log("Posts:", data);
+
+        let list = document.getElementById("userlistp");
+        data.slice(0,5).forEach(post => {
+          let li = document.createElement("li");
+          li.textContent = "User " + post.userId + ": " + post.title;
+          list.appendChild(li);
+        });
+      })
+      .catch(error => console.error("Fetch error (posts):", error));
+  </script>
 </body>
 </html>

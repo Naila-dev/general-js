@@ -27,6 +27,34 @@ console.log(greet("Faith"));
         }
     };
     // person is the object, greet is the method
+
+    //  DIFFERENT TYPES OF LOOPS
+    // while loop
+    let fruits = ["apple", "banana", "orange", "mango", "grape"];
+let i = 0;
+
+while (i < fruits.length) {
+  console.log("Fruit: " + fruits[i]);
+  i++;
+}
+
+
+// for each
+let cars = ["Toyota", "BMW", "Mercedes", "Honda", "Ford"];
+
+cars.forEach(function(car, index) {
+  console.log("Car " + (index + 1) + ": " + car);
+});
+
+// do...while
+let basket = ["apple", "banana", "orange", "mango", "grape"];
+let counter = 0;
+
+do {
+  console.log("Fruit: " + basket[counter]);
+  counter++;
+} while (counter < basket.length);
+
 </script>
 </body>
 </html>

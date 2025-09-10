@@ -41,6 +41,38 @@
 
       document.getElementById("menuOutput").textContent = message;
     }
+    // grouping values
+    let grade = "B";
+
+switch (grade) {
+  case "A":
+  case "B":
+  case "C":
+    console.log("Pass");
+    break;
+  case "D":
+  case "F":
+    console.log("Fail");
+    break;
+  default:
+    console.log("Invalid grade");
+}
+
+// fall through behaviour
+let fruit = "apple";
+
+switch (fruit) {
+  case "apple":
+  case "pear":
+    console.log("This is a pome fruit");
+    break;
+  case "banana":
+    console.log("This is a tropical fruit");
+    break;
+  default:
+    console.log("Unknown fruit");
+}
+
     </script>
 </body>
 </html>
